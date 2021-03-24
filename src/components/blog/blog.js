@@ -50,11 +50,11 @@ const Blog = () => {
       return new Promise(async (res, rej) => {
         try {
           const articlesWithoutImage = await fetch(
-            "http://lesemester.no/wp-json/wp/v2/posts/"
+            "https://lesemester.no/wp-json/wp/v2/posts/"
           ).then(response => response.json())
           articlesWithoutImage.filter(article => article.categories.includes(7))
           const image = await fetch(
-            "http://lesemester.no/wp-json/wp/v2/media/" +
+            "https://lesemester.no/wp-json/wp/v2/media/" +
               articlesWithoutImage[0].featured_media
           ).then(response => response.json())
           articlesWithoutImage[0].featured_image = image.source_url
